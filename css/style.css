@@ -1,0 +1,91 @@
+body {
+    background-color: #050210;
+}
+
+/* BIG CIRCLE (BORDER) */
+.circle {
+    width: 300px;
+    height: 300px;
+    margin: 200px auto;
+    position: relative;
+    border-radius: 100%;
+    background: linear-gradient(#fb5dad, #55fb9f, #b97aff);
+
+    animation-name: rotation;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+/* GLOW */
+.circle::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    border-radius: 100%;
+    background: linear-gradient(#fb5dad, #55fb9f, #b97aff);
+    filter: blur(30px);
+    z-index: -1;
+
+    animation-name: rotation;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+/* ROTATION ANIMACIJA */
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* MID CIRCLE (STATICNI) */
+.mid-circle {
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    margin-top: -125px;
+    margin-left: -125px;
+    background-color: #050210;
+    border-radius: 100%;
+}
+
+/* INNER CIRCLE (PULSIRAJUCI) */
+.inner-circle {
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    margin-top: -125px;
+    margin-left: -125px;
+    border-radius: 100%;
+
+    animation-name: pulsing;
+    animation-duration:  1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+/* PULSING ANIMACIJA */
+@keyframes pulsing {
+    0% {
+        background-color: #120737;
+        transform: scale(0);
+    }
+    100% {
+        background-color: #050210;
+        transform: scale(100%);
+    }
+}
